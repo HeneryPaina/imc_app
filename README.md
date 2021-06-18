@@ -1,16 +1,33 @@
-# imc_app
+# Calculadora de Indice de Massa Corporal
 
-A new Flutter project.
 
-## Getting Started
+![1](Screenshot_20210618-230235.png)
 
-This project is a starting point for a Flutter application.
+![2](Screenshot_20210618-230356.png)
 
-A few resources to get you started if this is your first Flutter project:
+![3](Screenshot_20210618-230304.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Porque?
+
+Este projeto faz parte do meu portfólio pessoal, e ficarei feliz se você podece dar algum feedback sobre o projeto, código, estrutura ou qualquer comentário que poderá me tornar um programador melhor!
+
+Email: henerypaina@gmail.com
+
+[Linkedin](https://www.linkedin.com/in/henery-paina-03b0a5136/)
+
+## Algumas observações sobre o aplicativo
+
+
+1 - Este é um aplicativo de calculo de índice de massa corporal, que calcula o seu IMC.
+
+
+## Funcionalidades
+
+Ao fornecer o seu peso e a sua altura o app calcula e informa se você esta: acima do peso, se você esta com o peso normal e se você esta abaixo do peso.
+
+
+Muito Obrigado
+
+## Licença
+Este é um projeto com a licença MIT License
