@@ -7,6 +7,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class __HomeScreenStateState extends State<HomeScreen> {
+  TextEditingController _heightController = TextEditingController();
+  TextEditingController _weightController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
