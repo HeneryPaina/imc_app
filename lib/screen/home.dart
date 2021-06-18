@@ -10,7 +10,7 @@ class __HomeScreenStateState extends State<HomeScreen> {
   TextEditingController _heightController = TextEditingController();
   TextEditingController _weightController = TextEditingController();
 
-  double _inc = 0;
+  double _imcResult = 0;
   String _textResult = "";
   @override
   Widget build(BuildContext context) {
@@ -37,12 +37,14 @@ class __HomeScreenStateState extends State<HomeScreen> {
                 Container(
                   width: 130,
                   child: TextField(
+                    controller: _heightController,
                     style: TextStyle(
                       fontSize: 42,
                       fontWeight: FontWeight.w300,
                       color: accentHexColor,
                     ),
-                    keyboardType: TextInputType.number,
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
                     decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: "Altura",
@@ -56,12 +58,14 @@ class __HomeScreenStateState extends State<HomeScreen> {
                 Container(
                   width: 130,
                   child: TextField(
+                    controller: _weightController,
                     style: TextStyle(
                       fontSize: 42,
                       fontWeight: FontWeight.w300,
                       color: accentHexColor,
                     ),
-                    keyboardType: TextInputType.number,
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
                     decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: "Peso",
@@ -77,13 +81,29 @@ class __HomeScreenStateState extends State<HomeScreen> {
             SizedBox(
               height: 30,
             ),
-            Container(
-              child: Text(
-                "Calcular",
-                style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: accentHexColor),
+            GestureDetector(
+              onTap: () {
+                double _a = double.parse(_heightController.text);
+                double _p = double.parse(_weightController.text);
+                setState(() {
+                  _imcResult = _p / (_a * _a);
+                  if (_imcResult > 25) {
+                    _textResult = "Voce esta acima de peso";
+                  } else if (_imcResult >= 18.5 && _imcResult <= 25) {
+                    _textResult = "Voce tem peso normal";
+                  } else {
+                    _textResult = "Voce esta abaixo do peso";
+                  }
+                });
+              },
+              child: Container(
+                child: Text(
+                  "Calcular",
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: accentHexColor),
+                ),
               ),
             ),
             SizedBox(
@@ -91,20 +111,23 @@ class __HomeScreenStateState extends State<HomeScreen> {
             ),
             Container(
               child: Text(
-                "10",
+                _imcResult.toStringAsFixed(2),
                 style: TextStyle(fontSize: 90, color: accentHexColor),
               ),
             ),
             SizedBox(
               height: 30,
             ),
-            Container(
-              child: Text(
-                "Peso Normal",
-                style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w400,
-                    color: accentHexColor),
+            Visibility(
+              visible: _textResult.isNotEmpty,
+              child: Container(
+                child: Text(
+                  _textResult,
+                  style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w400,
+                      color: accentHexColor),
+                ),
               ),
             ),
           ],
