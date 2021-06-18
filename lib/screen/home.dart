@@ -10,6 +10,8 @@ class __HomeScreenStateState extends State<HomeScreen> {
   TextEditingController _heightController = TextEditingController();
   TextEditingController _weightController = TextEditingController();
 
+  double _inc = 0;
+  String _textResult = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
